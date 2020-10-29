@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alarm Clock</title>
+</head>
+<body>
+<div style=" margin-left: 500px; height: 600px ">
+
+<div style="background-color:pink; width: 300px; height: 200px; border-radius: 20px; border-color: white " >
+	<div style=" margin-top: 30px " id="clk" onload="clock()"></div>
+<div><p style=" font-family: sans-serif; font-size: 50px; margin-left: 30px; margin-top: 20px; color: blue ">ALARM CLOCK</p></div>
+
+</div>
+<div>
+<input type="number" placeholder="hours" id="hr" name="">
+<input type="number" placeholder="minutes" id="min" name="">
+<br>
+<select id="sel">
+		<option value="tone1.mp3">alarm</option>
+		<option value="alarm.mp3">tone1</option>
+		<option value="tone2.mp3">tone2</option>
+		<option value="tone3.mp3">tone3</option>
+</select>
+
+<button onclick="seti()">Set</button>
+<br>
+</div>
+<div id="reset"  style="display:none">
+<input type="number" id="snztim" placeholder="snooze minutes" name="">
+
+<button onclick="snooz()">snooze</button>
+<button onclick="clearInterval(c)">Stop</button>
+
+</div>
+<div id="dis"></div>
+</div>
+
+<script type="text/javascript">
+	var a = setInterval(clock,1000);
+
+	function clock() {
+	 	// body...
+	 	var a = new Date();
+	 	document.getElementById('clk').innerHTML = a.getHours()+':'+ a.getMinutes()+':'+a.getSeconds();
+	 	var z = a.getSeconds();
+	 	var y = a.getMinutes();
+	 	var s = a.getHours();
+	 	if (z<10) {
+	 		document.getElementById('clk').innerHTML = a.getHours()+':'+ a.getMinutes()+':'+ '0' +a.getSeconds();
+	 	}
+	 		if (y<10) {
+	 		document.getElementById('clk').innerHTML = a.getHours()+':' + '0' + a.getMinutes()+':' +a.getSeconds();
+
+	 	}
+
+	 	if (s<10) {
+	 		document.getElementById('clk').innerHTML = '0' + a.getHours()+':'+ a.getMinutes()+':' +a.getSeconds();
+
+	 } 
+	}
+	
+
+
+
+
+		
+	 // var c = setInterval(seti,3000);
+	 // var sound = new Audio();
+	 // sound.src = 'alarm.mp3';
+	 // function seti() {
+	 	
+	 // 	var b = new Date;
+	 // 	ctime = b.getHours()+':'+b.getMinutes();
+	 // 	atime = hr.value+':'+min.value;
+
+	 // 	if (ctime==atime) {
+
+	 // 		// document.getElementById('dis').innerHTML += 'me';
+
+	 // 		dis.innerHTML += 'It is time';
+	 // 		sound.play();
+
+	 // 		document.getElementById("reset").style.display=''
+
+	 // 	}
+	 // 	// body...
+	 // }
+
+
+	 	var myMin;
+	 	var dt;
+	 	var it;
+	 	var z;
+	 	setInterval(rep,1000);
+	 	var sound = new Audio();
+	 	// sound.src = 'alarm.mp3';
+	 	
+	 	function seti() {
+	 		z = sel.value;
+	 		sound.src = z;
+	 		myMin=min.value;
+	 		// body...
+	 	}
+
+	 	function snooz() {
+	 		snzt = snztim.value;
+	 		myMin=Number(myMin)+Number(snzt);
+	 		sound.pause();
+	 		// body...
+	 	}
+
+	 	function rep() {
+
+	 		var d= new Date;
+
+
+	 	dt = d.getHours()+':'+d.getMinutes();
+	 	it = hr.value+':'+myMin;
+	 	
+
+	 		if (dt==it) {
+
+	 			sound.play();
+
+	 				document.getElementById("reset").style.display=''
+	 		}	// body...
+	 	}
+
+
+	 
+// 	 var sound = new Audio();
+// 	 sound.src = 'alarm.mp3';
+
+
+// 	var m = setInterval(snooz,3000);
+
+// 	 function snooz() {
+// 	 	// sound.pause();
+
+// 	 		clearInterval(c);
+// 	 		var b = new Date;
+// 	 		ctime = b.getHours()+':'+b.getMinutes();
+// 			atime = hr.value+':'+ (snztim.value+min.value);
+// 			var k;
+	 
+	 	
+// 	 	var k= new Date;
+// 	 	var v = parseFloat (snztim.value)+min.value;
+// 	 	Wtime = k.getHours()+':'+k.getMinutes();
+// 	 	Utime = hr.value+':'+ v ;
+
+// 	 	if (ctime==atime) {
+
+	 		
+// 	 		dis.innerHTML += 'me';
+
+// 	 		dis.innerHTML += 'It is time';
+// 	 		sound.play();
+
+
+// }
+// }
+
+	 
+	 // var sound = new Audio();
+	 // sound.src = 'alarm.mp3';
+	 // function snooz() {
+
+	 // 	clearInterval(c);
+	 // 	setInterval(seti,60000);
+	 	
+	 	// var b = new Date;
+	 	// ctime = b.getHours()+':'+b.getMinutes();
+	 	// atime = hr.value+':'+min.value;
+
+	 	// if (ctime==atime) {
+
+	 	// 	// document.getElementById('dis').innerHTML += 'me';
+
+	 	// 	dis.innerHTML += 'It is time';
+	 	// 	sound.play();
+	 	// 	}
+	 	
+
+	 // 	}
+	 // 	// body...
+	 // }
+
+
+// 	 var c = setInterval(seti,20000);
+// 	 var sound = new Audio();
+// 	 sound.src = 'alarm.mp3';
+// 	 function snztim() {
+
+// 	 		stop();
+	 	
+// 	 	var b = new Date;
+// 	 	ctime = b.getHours()+':'+b.getMinutes();
+// 	 	atime = hr.value+':'+min.value;
+
+// 	 	if (ctime==atime) {
+
+// 	 		// document.getElementById('dis').innerHTML += 'me';
+
+// 	 		dis.innerHTML += 'It is time';
+// 	 		sound.play();
+
+	 	
+// 	 	// body...
+// 	 }
+// }
+
+ // var a = new Date();
+
+ 	// var b=a.getHours();
+ 	// var c=a.getSeconds();
+ 	// var d = a.getMinutes();
+ 	// // var b = ('a.getHours()'+'a.getMinutes()'+'a.getSeconds()'); 	document.getElementById('display').innerHTML = b;
+
+ 	
+	
+
+</script>
+
+</body>
+</html>
